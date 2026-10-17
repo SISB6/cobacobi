@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FBF9F5;
+  --foreground: #1F1F1F;
+  --card: #FFFFFF;
+  --card-foreground: #1F1F1F;
+  --muted: #F3EFE8;
+  --muted-foreground: #736E65;
+  --border: #E8E2D8;
+  --ring: #C084FC;
+  
+  /* Fashion studio palette */
+  --coral-accent: #FB7185;
+  --lilac-accent: #C084FC;
+  --sand-accent: #E8DFD1;
+  --gold-accent: #D97706;
+  --charcoal: #1C1917;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Serif editorial titles */
+.font-editorial {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+}
+
+/* Custom aesthetic scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EFE8;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5CCC0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5A998;
+}
+
+/* Glassmorphism studio card */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(232, 226, 216, 0.7);
+}
+
+.glass-dark {
+  background: rgba(28, 25, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Micro-animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.88; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-mask {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-mask::after {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+/* Interactive comparison slider handle */
+.slider-handle {
+  touch-action: none;
+  cursor: ew-resize;
+}
